@@ -16,7 +16,7 @@ function writeSubmissions(submissions) {
     localStorage.setItem(storageKey, JSON.stringify(submissions));
 }
 
-function  updateSubmitState(submission) {
+function  updateSubmitState() {
     submitButton.disabled = !(form.checkValidity() && termsCheckBox.checked);
 }
 
@@ -32,11 +32,11 @@ form.addEventListener('submit', (event) => {
     }
 
     const submission = {
-        nameInput,
-        emailInput,
-        passwordInput,
-        confirmPasswordInput,
-        countrySlect,
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        password: passwordInput.value.trim(),
+        confirmPassword: confirmPasswordInput.value.trim(),
+        country: countrySlect.value,
         termsCheckBox: termsCheckBox.checked,
     }
 
