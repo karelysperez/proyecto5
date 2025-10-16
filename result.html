@@ -10,31 +10,13 @@
     <h1>¡Formulario Recibido!</h1>
 
     <p>Gracias por registrarte. Hemos recibido la siguiente información:</p>
-    <p>Nombre: <span id="nombre-recibido"></span></p>
-    <p>Email: <span id="email-recibido"></span></p>
 
-    <script>
-        // 1. Obtener la cadena de parámetros de la URLs
-        const parametrosURL = new URLSearchParams(window.location.search);
-        // 2. Leer los valores usando el 'name' de los campos del formularioa
+    <ul id="submission-list" class="submission-list"></ul>
 
-        // (En el formulario usamos 'name="usuario"' y 'name="correo"')
-        const nombreUsuario = parametrosURL.get('name');
-        const emailUsuario = parametrosURL.get('email');
+    <a href="index.html" class="back-button">Go Back</a>
+    <button id="clear-button">Clear</button>
 
-        // 3. Mostrar los valores en la página
-        if (nombreUsuario) {
-            document.getElementById('nombre-recibido').textContent = nombreUsuario;
-        } else {
-            document.getElementById('nombre-recibido').textContent = "No especificado";
-        }
-
-        if (emailUsuario) {
-            document.getElementById('email-recibido').textContent = emailUsuario;
-        } else {
-            document.getElementById('email-recibido').textContent = "No especificado";
-        }
-    </script>
+    <script type="module" src="src/FormData.js"></script>
 
 </body>
 </html>

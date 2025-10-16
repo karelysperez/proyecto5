@@ -1,5 +1,4 @@
-
-
+const storageKey = 'formSubmissions';
 const form = document.querySelector('form');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
@@ -7,30 +6,48 @@ const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirmPassword');
 const countrySlect = document.getElementById('country');
 const termsCheckBox = document.getElementById('terms');
-const submitButton = document.querySelector('button');
+const submitButton = document.getElementById('submitBtn');
 
-function validateForm() {
-    const allFilled = nameInput.value &&
-        emailInput.value &&
-        passwordInput.value &&
-        confirmPasswordInput.value &&
-        countrySlect.value &&
-        termsCheckBox.checked;
-
-    submitButton.disabled = !allFilled;
+function readSubmissions() {
+    return JSON.parse(localStorage.getItem(storageKey)) || [];
 }
 
-[nameInput, emailInput, passwordInput, confirmPasswordInput, countrySlect, termsCheckBox, submitButton]
-    .forEach(element => element.addEventListener('input', validateForm));
+function writeSubmissions(submissions) {
+    localStorage.setItem(storageKey, JSON.stringify(submissions));
+}
 
-termsCheckBox.addEventListener('change', validateForm);
+function  updateSubmitState(submission) {
+    submitButton.disabled = !(form.checkValidity() && termsCheckBox.checked);
+}
+
+form.addEventListener('input', updateSubmitState);
+termsCheckBox.addEventListener('change', updateSubmitState);
 
 form.addEventListener('submit', (event) => {
-    if(passwordInput.value !== confirmPasswordInput.value) {
-        event.preventDefault();
+    event.preventDefault();
+
+    if(passwordInput.value !== confirmPasswordInput.value){
         alert('Passwords do not match');
+        return;
     }
+
+    const submission = {
+        nameInput,
+        emailInput,
+        passwordInput,
+        confirmPasswordInput,
+        countrySlect,
+        termsCheckBox: termsCheckBox.checked,
+    }
+
+    const list = readSubmissions();
+    list.push(submission);
+    writeSubmissions(list);
+
+    window.location.href = 'result.html';
 });
+
+updateSubmitState();
 
 
 
