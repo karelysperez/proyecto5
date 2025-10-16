@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>proyecto5</title>
+  </head>
+  <body>
+    <header>Create Account</header>
+    <main>
+        <form action="result.html" id="form" method="get">
+            <div class="name-section">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="email-section">
+                <label for="email">E-mail Address</label>
+                <input type="text"
+                       id="email"
+                       name="email"
+                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                       title="Please enter a valid email address (e.g. user@example.com)"
+                       required>
+            </div>
+
+            <div class="password-section">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="confirm-password-section">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+
+            <div class="selectCountry-section">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="">Select a country</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Peru">Peru</option>
+                </select>
+            </div>
+
+            <div class="terms-section">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the terms and conditions</label>
+            </div>
+
+            <button type="submit" disabled>Create Account</button>
+        </form>
+    </main>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

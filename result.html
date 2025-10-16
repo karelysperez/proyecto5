@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Result</title>
+</head>
+<body>
+    <h1>¡Formulario Recibido!</h1>
+
+    <p>Gracias por registrarte. Hemos recibido la siguiente información:</p>
+    <p>Nombre: <span id="nombre-recibido"></span></p>
+    <p>Email: <span id="email-recibido"></span></p>
+
+    <script>
+        // 1. Obtener la cadena de parámetros de la URLs
+        const parametrosURL = new URLSearchParams(window.location.search);
+        // 2. Leer los valores usando el 'name' de los campos del formularioa
+
+        // (En el formulario usamos 'name="usuario"' y 'name="correo"')
+        const nombreUsuario = parametrosURL.get('name');
+        const emailUsuario = parametrosURL.get('email');
+
+        // 3. Mostrar los valores en la página
+        if (nombreUsuario) {
+            document.getElementById('nombre-recibido').textContent = nombreUsuario;
+        } else {
+            document.getElementById('nombre-recibido').textContent = "No especificado";
+        }
+
+        if (emailUsuario) {
+            document.getElementById('email-recibido').textContent = emailUsuario;
+        } else {
+            document.getElementById('email-recibido').textContent = "No especificado";
+        }
+    </script>
+
+</body>
+</html>
