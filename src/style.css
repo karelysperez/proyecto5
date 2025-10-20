@@ -93,6 +93,7 @@ select:focus{
 }
 
 select{
+    box-sizing: content-box;
     appearance:none;
     background-image: linear-gradient(45deg, transparent 50%, #9aa1a9 50%),
     linear-gradient(135deg, #9aa1a9 50%, transparent 50%);
@@ -105,11 +106,7 @@ input[type="checkbox"]{
     transform: translateY(1px);
     accent-color:#3b82f6;
 }
-.selectCountry-section{
-    display:flex;
-    gap:10px;
-    flex-direction: row;
-}
+
 
 .terms-section{
     display:flex;
@@ -136,7 +133,6 @@ button[type="submit"]{
     color:#fff;
     font-weight:700;
     font-size:16px;
-    cursor:pointer;
     transition: transform .05s, filter .15s, box-shadow .15s;
 }
 button[type="submit"]:hover{ filter:brightness(1.05); }
