@@ -92,11 +92,16 @@ select:focus{
     box-shadow:0 0 0 4px rgba(59,130,246,.10);
 }
 
+input[type="checkbox"]:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
 select{
     box-sizing: content-box;
     appearance:none;
     background-image: linear-gradient(45deg, transparent 50%, #9aa1a9 50%),
-    linear-gradient(135deg, #9aa1a9 50%, transparent 50%);
+                      linear-gradient(135deg, #9aa1a9 50%, transparent 50%);
     background-position: calc(100% - 22px) 19px, calc(100% - 16px) 19px;
     background-size:6px 6px, 6px 6px;
     background-repeat:no-repeat;
@@ -121,21 +126,13 @@ input[type="checkbox"]{
     font-size:14px;
     color:#60646b;
 }
-.terms-inline a{
-    color:#3b82f6;
-    text-decoration:none;
-}
-
-.terms-inline a:hover{
-    text-decoration:underline;
-}
 
 button[type="submit"]{
     width:100%;
     height:50px;
     border:none;
     border-radius:999px;
-    background:#1a73e8;
+    background: #bccbe7;
     color:#fff;
     font-weight:700;
     font-size:16px;
@@ -144,3 +141,20 @@ button[type="submit"]{
 button[type="submit"]:hover{
     filter:brightness(1.05);
 }
+
+button[type="submit"].btn-enabled{
+    background: #3b82f6;
+}
+
+/* válido */
+.is-valid{
+    box-shadow: 0 0 0 2px rgba(25, 245, 107, 0.91);
+}
+
+/* inválido */
+input.is-invalid, select.is-invalid, textarea.is-invalid {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 4px rgba(239,68,68,.15);
+}
+
+

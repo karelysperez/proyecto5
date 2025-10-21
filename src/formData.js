@@ -1,3 +1,4 @@
+import './formDataStyle.css';
 const storageKey = 'formSubmissions';
 
 function readSubmissions() {
@@ -40,29 +41,33 @@ function addSubmission() {
 }
 
 function displaySubmission() {
-    const submissionList = document.getElementById('submission-list');
+    const submissionTable = document.getElementById('submission-list');
+    const submissionTbody = document.getElementById('submission-tbody');
 
     const submissions = readSubmissions();
 
     if(!submissions.length) {
-        submissionList.innerHTML = '<p>No submissions yet.</p>';
+        submissionTable.style.display = 'none';
+        submissionTable.insertAdjacentHTML('afterend', '<p id="no-submissions">No submissions yet.</p>');
         return;
     }
 
-    submissionList.innerHTML = '';
+    submissionTable.style.display = 'table';
+    const noSubmissionsMsg = document.getElementById('no-submissions');
+    if(noSubmissionsMsg) noSubmissionsMsg.remove();
+
+    submissionTbody.innerHTML = '';
 
     submissions.forEach((s) => {
-        const listItem = document.createElement('li');
-        listItem.className = 'submission-item';
-        listItem.innerHTML = `
-            <p><strong>Name:</strong> ${s.name}</p>
-            <p><strong>Email:</strong> ${s.email}</p>
-            <p><strong>Password:</strong> ${s.password}</p>
-            <p><strong>Confirm Password:</strong> ${s.confirmPassword}</p>
-            <p><strong>Country:</strong> ${s.country}</p>
-            <hr>
-        `
-        submissionList.appendChild(listItem);
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${s.name}</td>
+            <td>${s.email}</td>
+            <td>${s.password}</td>
+            <td>${s.confirmPassword}</td>
+            <td>${s.country}</td>
+        `;
+        submissionTbody.appendChild(row);
     });
 }
 
