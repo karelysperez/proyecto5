@@ -37,7 +37,7 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 14px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.0625rem;
 }
 
 .submission-list td {
