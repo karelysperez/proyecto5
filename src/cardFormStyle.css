@@ -1,0 +1,166 @@
+
+/* Combined Card Container */
+.card-container {
+    max-width: 465px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 14px 20px rgba(0, 0, 0, 0.13);
+    overflow: hidden;
+    padding: 42px 42px 144px ;
+    width: 465px;
+}
+
+
+header {
+    width: 100%;
+    max-width: 465px;
+    background-color: #ffffff;
+    color: #374151;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    padding: 28px 24px;
+}
+
+header p {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    color: #505256;
+    font-size: 15px;
+    margin: 8px 0 0 0;
+    font-weight: 400;
+}
+
+div{
+    gap:0;
+}
+
+select{
+    width:100%;
+    height:48px;
+    padding:0 14px;
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+    background:#fff;
+    outline:none;
+    transition:border-color .15s,box-shadow .15s;
+    font-size:16px;
+    color:#111827;
+}
+
+/* Form Container */
+#card-form {
+    align-items: stretch;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+
+}
+
+/* Form Sections */
+.card-name-section,
+.card-expiry-section,
+.card-cvc-section,
+.checkbox-section {
+    margin-bottom: 24px;
+}
+
+.card-expiry-section {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.card-expiry-section-month {
+    width: 100%;
+}
+
+.card-expiry-section-year {
+    width: 100%;
+}
+
+.checkbox-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.checkbox-section label {
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 14px;
+    color: #60646b;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #505256;
+    margin-right: auto;
+    margin-bottom: 8px;
+}
+
+/* Input Styles */
+input[type="text"] {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+    font-size: 16px;
+    color: #111827;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59,130,246,.10);
+}
+
+input[type="text"]::placeholder {
+    color: #9ca3af;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #3b82f6;
+}
+
+/* Button Styles */
+button[type="submit"] {
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: 10px;
+    background: #3b82f6;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    letter-spacing: 0.025em;
+}
+
+button[type="submit"]:hover {
+    filter: brightness(1.05);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}

@@ -17,7 +17,7 @@ function getFormData() {
     const email = params.get('email');
     const password = params.get('password');
     const confirmPassword = params.get('confirmPassword');
-    const country = params.get('country');
+    const country = params.get('country') || params.get('selected') || '';
     return { name, email, password, confirmPassword, country };
 }
 

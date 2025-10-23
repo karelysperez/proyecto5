@@ -1,23 +1,4 @@
 
-html, body{
-    height: 100%;
-}
-
-body {
-    margin: 24px;
-    padding: 0;
-    min-width: 320px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1px;
-    background-color: #efefef;
-    font-family: 'Roboto', sans-serif;
-    color: #111827;
-}
-
 header, main {
     width: 100%;
     max-width: 465px;
@@ -25,17 +6,6 @@ header, main {
     box-shadow: 0 14px 20px rgba(0, 0, 0, 0.13);
 }
 
-header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    padding: 42px;
-    width: 465px;
-}
 
 main{
     display: flex;
@@ -48,21 +18,6 @@ main{
     width: 465px;
 }
 
-form{
-    display:flex;
-    flex-direction: column;
-    gap: 16px;
-    width:100%;
-}
-
-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
 label{
     display:block;
     font-size:14px;
@@ -71,10 +26,47 @@ label{
     margin-right: auto;
 }
 
+.custom-select {
+    position: relative;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin: 4px 0 0 0;
+    padding: 0;
+    list-style: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.options li {
+    padding: 10px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.options li:hover {
+    background: #f3f4f6;
+}
+
+.custom-select.open .options {
+    display: block;
+}
+
 input[type="text"],
 input[type="email"],
-input[type="password"],
-select{
+input[type="password"], .selected{
     width:100%;
     height:48px;
     padding:0 14px;
@@ -86,8 +78,25 @@ select{
     font-size:16px;
 }
 
+.selected{
+    position:relative;
+    align-items: flex-start;
+}
+
+.selected::after {
+    content: "";
+    position: absolute;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="%239aa1a9" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>');
+    background-repeat: no-repeat;
+    background-size: 28px 28px;
+    pointer-events: none;
+}
+
 input:focus,
-select:focus{
+.selected:focus{
     border-color:#3b82f6;
     box-shadow:0 0 0 4px rgba(59,130,246,.10);
 }
@@ -95,16 +104,6 @@ select:focus{
 input[type="checkbox"]:focus {
     border-color: transparent;
     box-shadow: none;
-}
-
-select{
-    box-sizing: content-box;
-    appearance:none;
-    background-image: linear-gradient(45deg, transparent 50%, #9aa1a9 50%),
-                      linear-gradient(135deg, #9aa1a9 50%, transparent 50%);
-    background-position: calc(100% - 22px) 19px, calc(100% - 16px) 19px;
-    background-size:6px 6px, 6px 6px;
-    background-repeat:no-repeat;
 }
 
 input[type="checkbox"]{

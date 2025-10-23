@@ -50,6 +50,49 @@ form.addEventListener('input', (event) => {
 
 termsCheckBox.addEventListener('change', updateSubmitState);
 
+//Country Select with Flags
+const countries = [
+    { name: "Argentina", flag: "🇦🇷" },
+    { name: "Brazil", flag: "🇧🇷" },
+    { name: "Chile", flag: "🇨🇱" },
+    { name: "Colombia", flag: "🇨🇴" },
+    { name: "Ecuador", flag: "🇪🇨" },
+    { name: "Mexico", flag: "🇲🇽" },
+    { name: "Peru", flag: "🇵🇪" },
+    { name: "Spain", flag: "🇪🇸" }
+];
+
+const select = document.querySelector('.custom-select');
+const selected = select.querySelector('.selected');
+const optionsList = select.querySelector('.options');
+const hiddenCountryInput = document.getElementById('country');
+
+countries.forEach(country => {
+
+    const li = document.createElement('li');
+
+    li.innerHTML = `${country.flag} ${country.name}`;
+
+    li.addEventListener('click', () => {
+        selected.innerHTML = `${country.flag} ${country.name}`;
+        // cuando el usuario selecciona un país:
+        hiddenCountryInput.value = country.name; // o country.code, lo que quieras enviar
+        select.classList.remove('open');
+    });
+    optionsList.appendChild(li);
+});
+
+select.addEventListener('click', (event) => {
+    event.stopPropagation();
+    select.classList.toggle('open');
+});
+
+document.addEventListener('click', (event) => {
+    if(!select.contains(event.target)) {
+        select.classList.remove('open');
+    }
+})
+
 form.addEventListener('submit', (event) => {
     syncConfirmValidity();
 
