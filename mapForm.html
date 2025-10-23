@@ -3,8 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Map Form</title>
+    <link rel="stylesheet" href="src/mapStyle.css">
 </head>
 <body>
+    <section class="contact-card">
+
+        <div class="map-col">
+
+            <div id="map" class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32067.27437533793!2d-4.239353020303229!3d57.46836682442526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x488f715b2d17de2b%3A0x624309d12e3ec43d!2sInverness%2C%20UK!5e0!3m2!1sen!2ses!4v1761215572136!5m2!1sen!2ses"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="contact-details">
+
+                <p class="line">
+                    <span class="icon">📍</span>
+                    Inverness, UK
+                </p>
+                <p class="line">
+                    <span class="icon">📞</span>
+                    +818 512 7239, +818 207 4045
+                </p>
+            </div>
+        </div>
+
+        <div class="form-col">
+            <h2>Contact Us</h2>
+            <p class="subtitle">Exploring ideas at the intersection of desing</p>
+
+            <form id="contact-form" novalidate>
+                <label class="field">
+                    <input type="text" name="name" placeholder="Name" required>
+                </label>
+
+                <label class="field">
+                    <input type="email" name="email" placeholder="Email" required>
+                </label>
+
+                <label class="field">
+                    <textarea name="message" placeholder="Message" required></textarea>
+                </label>
+
+                <button class="btn-primary" type="submit">
+                    Submit <span class="arrow">▸</span>
+                </button>
+            </form>
+        </div>
+    </section>
 
 </body>
 </html>
