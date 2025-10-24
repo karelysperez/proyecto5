@@ -1,37 +1,30 @@
 import './formStyle.css';
 import './cardFormStyle.css';
 
-// Populate year select with current year + 15 years
-const yearSelect = document.getElementById('card-expiry-year');
-const currentYear = new Date().getFullYear();
-
-for (let i = 0; i < 16; i++) {
-    const year = currentYear + i;
-    const option = document.createElement('option');
-    option.value = year.toString().slice(-2); // Last 2 digits
-    option.textContent = year;
-    yearSelect.appendChild(option);
-}
-
-// Card holder name - convert to uppercase
+// convert to uppercase
 const cardHolderInput = document.getElementById('card-holder-name');
 cardHolderInput.addEventListener('input', (e) => {
     e.target.value = e.target.value.toUpperCase();
 });
 
-// Card number - format with spaces (4 groups of 4)
+// format with spaces (4 groups of 4)
 const cardNumberInput = document.getElementById('card-number');
 cardNumberInput.addEventListener('input', (e) => {
     let value = e.target.value.replace(/\s/g, ''); // Remove spaces
     value = value.replace(/\D/g, ''); // Remove non-digits
     
-    // Limit to 16 digits
+
     if (value.length > 16) {
         value = value.slice(0, 16);
     }
     
-    // Add spaces every 4 digits
+
     e.target.value = value.match(/.{1,4}/g)?.join(' ') || value;
+});
+
+const yearInput = document.getElementById('card-expiry-year');
+yearInput.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
 });
 
 // CVC - only numbers, max 3 characters
@@ -44,6 +37,25 @@ cvcInput.addEventListener('input', (e) => {
 const form = document.getElementById('card-form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    const yearValue = yearInput.value;
+    const expiryMonth = document.getElementById('card-expiry-month').value;
+
+    if (yearValue.length !== 4){
+        alert('Please enter a valid year');
+        return;
+    }
+
+    const expiryYear = parseInt(yearValue);
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
+    const expiryMonthInt = parseInt(expiryMonth);
+
+    if (expiryYear < currentYear || (expiryYear === currentYear && expiryMonthInt < currentMonth)){
+        alert('Please enter a valid expiry date');
+        return;
+    }
     
     const cardData = {
         holderName: cardHolderInput.value,
